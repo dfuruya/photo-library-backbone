@@ -18,7 +18,8 @@ var AppView = Backbone.View.extend({
 
     this.model.on('change:currentRating', function(model) {
       this.displayView.changeRating(model.get('currentRating'));
-    });    
+      console.log()
+    }, this);    
 
     this.render();
   },

@@ -5,19 +5,12 @@ var PhotoEntryModel = Backbone.Model.extend({
     rating: 0
   },
 
-  // initialize: function() {
-  // },
-
   showPhoto: function() {
     this.trigger('showPhoto', this);
   },
 
-  changeRating: function() {
-    this.trigger('changeRating', this)
+  setRating: function(rating) {
+    this.set('rating', rating);
   }
-
-  // addURL: function(url) {
-  //   this.set('url', url);
-  // },
 
 });

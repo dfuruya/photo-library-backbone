@@ -1,6 +1,6 @@
 var DisplayView = Backbone.View.extend({
   events: {
-    'change option': this.changeRating
+    'change select': 'updateRating'
   },
 
   initialize: function() {
@@ -12,24 +12,25 @@ var DisplayView = Backbone.View.extend({
     this.render();
   },
 
-  changeRating: function(e) {
-    console.log('rating changed');
+  updateRating: function(e) {
     this.model.setRating(e.target.value);
     this.render();
   },
 
   render: function() {
-    this.$el.html('<p>Title: ' + this.model.get('title') + '</p>' + 
+    this.$el.html(
+      '<p>Title: ' + this.model.get('title') + '</p>' + 
       '<p>Rating: ' + this.model.get('rating') + ' out of 5</p>' + 
+      '</p>' + 
       '<p>Select Rating: ' + 
       '<select>' + 
-      '<option value="1">1</option>' + 
-      '<option value="2">2</option>' + 
-      '<option value="3">3</option>' + 
-      '<option value="4">4</option>' + 
-      '<option value="5">5</option>' + 
-      '</select>' + 
-      '</p>' + 
+      '<option value=0>0</option>' + 
+      '<option value=1>1</option>' + 
+      '<option value=2>2</option>' + 
+      '<option value=3>3</option>' + 
+      '<option value=4>4</option>' + 
+      '<option value=5>5</option>' + 
+      '</select>' + '</p>' + 
       '<img src=' + this.model.get('url') + ' />'
     );
     return this;
