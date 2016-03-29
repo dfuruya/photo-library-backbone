@@ -7,7 +7,7 @@ var TitleView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.text('Photo Album');
+    this.$el.text('Photo Library App');
     return this;
   }
 });

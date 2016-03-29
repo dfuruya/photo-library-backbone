@@ -12,13 +12,16 @@ var AppView = Backbone.View.extend({
       model: new PhotoEntryModel()
     });
 
+    this.importPhotoView = new ImportPhotoView({
+      collection: this.model.get('library')
+    });
+
     this.model.on('change:currentPhoto', function(model) {
       this.displayView.getPhoto(model.get('currentPhoto'));
     }, this);
 
     this.model.on('change:currentRating', function(model) {
       this.displayView.changeRating(model.get('currentRating'));
-      console.log()
     }, this);    
 
     this.render();
@@ -27,6 +30,7 @@ var AppView = Backbone.View.extend({
   render: function() {
     this.$el.append([
       this.title.$el,
+      this.importPhotoView.$el,
       this.photosView.$el,
       this.displayView.$el
     ]);

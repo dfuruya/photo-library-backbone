@@ -21,7 +21,6 @@ var DisplayView = Backbone.View.extend({
     this.$el.html(
       '<p>Title: ' + this.model.get('title') + '</p>' + 
       '<p>Rating: ' + this.model.get('rating') + ' out of 5</p>' + 
-      '</p>' + 
       '<p>Select Rating: ' + 
       '<select>' + 
       '<option value=0>0</option>' + 
