@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Backbone 1</title>
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: beige;
+        font: 24px Tahoma;
+      }
+      img {
+        width: 720px;
+        height: 480px;
+      }
+      tr {
+        padding: 0px 50px;
+        font: italic bold 24px;        
+      }
+    </style>
+
+    <div id="app"></div>
+    
+    <script src="lib/jquery.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+    <!-- Models -->
+    <script src="models/PhotoEntryModel.js"></script>
+    <script src="models/AppModel.js"></script>
+    <!-- Collections -->
+    <script src="collections/Photos.js"></script>
+    <!-- Views -->
+    <script src="views/DisplayView.js"></script>
+    <script src="views/TitleView.js"></script>
+    <script src="views/PhotosView.js"></script>
+    <script src="views/PhotoEntryView.js"></script>
+    <script src="views/AppView.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
