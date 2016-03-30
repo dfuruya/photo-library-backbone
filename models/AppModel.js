@@ -1,14 +1,10 @@
 var AppModel = Backbone.Model.extend({
   initialize: function(params) {
     this.set('currentPhoto', new PhotoEntryModel());
-    this.set('rating', new Photos());
+    this.set('photoList', this.get('library'));
 
-    params.library.on('showPhoto', function(photo) {
-      this.set('currentPhoto', photo);
-    }, this);
-
-    params.library.on('setRating', function(photo) {
-      this.set('rating', photo.model.rating);
+    params.library.on('showPhoto', function(model) {
+      this.set('currentPhoto', model);
     }, this);
   }
 

@@ -4,25 +4,22 @@ var AppView = Backbone.View.extend({
   initialize: function() {
     this.title = new TitleView();
 
+    this.importPhotoView = new ImportPhotoView({
+      collection: this.model.get('library')
+    });
+
     this.photosView = new PhotosView({
       collection: this.model.get('library')
     });
 
     this.displayView = new DisplayView({
-      model: new PhotoEntryModel()
+      model: this.model.get('currentPhoto')
     });
 
-    this.importPhotoView = new ImportPhotoView({
-      collection: this.model.get('library')
-    });
 
     this.model.on('change:currentPhoto', function(model) {
       this.displayView.getPhoto(model.get('currentPhoto'));
     }, this);
-
-    this.model.on('change:currentRating', function(model) {
-      this.displayView.changeRating(model.get('currentRating'));
-    }, this);    
 
     this.render();
   },

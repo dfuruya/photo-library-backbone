@@ -3,9 +3,14 @@ var PhotosView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
+
+    this.collection.on('add', function() {
+      this.render();
+    }, this);
   },
 
   render: function() {
+    this.$el.empty();
     this.$el.append('<th>Images</th>');
 
     var entries = this.collection.map(function(model) {
